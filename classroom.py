@@ -1,12 +1,53 @@
-class Assignment:
-    pass
+class Assignment():
+    def __init__(self, name, github_url):
+        self.completed = False
+        self.grade = None
+        self.name = name
+        self.github_url = github_url
 
-class Student:
-    pass
+    def mark_done(self, grade):
+        self.grade = grade
+        self.completed = True
+
+class Student():
+    def __init__(self, name):
+        self.name = name
+        self.pending_homeworks = []
+        self.completed_homeworks = []
+
+    def assign_homework(self, assignment):
+        self.pending_homeworks.append(assignment)
+
+    def complete_homework(self, name, grade):
+        # find assignment (name) in pending_homework
+        for index in range(0, len(self.pending_homeworks)):
+            ## if assignment found:
+            if (name == self.pending_homeworks[index].name):
+                assignment = self.pending_homeworks.pop(index)
+                ### call mark_done method and pass it grade
+                assignment.mark_done(grade)
+                ### "move" pending_homework name instance to completed_homeworks
+                self.completed_homeworks.append(assignment)
+                return True
+
+    def print_outstanding_homeworks(self):
+        if (len(self.pending_homeworks) <= 0):
+            print(str(self.name) + " has no outstanding homeworks.")
+        else:
+            for homework in self.pending_homeworks:
+                print(str(self.name) + " needs to complete "+ str(homework.name))
 
 class SeiClass:
-    pass
+    def __init__(self, name):
+        self.name = name
+        self.students = []
 
+    def add_student(self, student):
+        self.students.append(student)
+
+    def assign_homework(self, assignment):
+        for student in self.students:
+            student.assign_homework(assignment)
 
 henry = Student('Henry')
 sarah = Student('Sarah')
