@@ -31,32 +31,33 @@ Let's practice writing classes with useful functionalities
 
     
 Sample Input:
-```python
-henry = Student('Henry')
-sarah = Student('Sarah')
-mike = Student('Mike')
 
-sei26 = SeiClass('sei26')
-sei26.add_student(henry)
-sei26.add_student(sarah)
-sei26.add_student(mike)
+```py
+nick = Student('Nick')
+sarah = Student('Sarah')
+brandi = Student('Brandi')
+
+sei30 = SeiClass('sei30')
+sei30.add_student(nick)
+sei30.add_student(sarah)
+sei30.add_student(brandi)
 
 assignment1 = Assignment('Bounty Hunters', 'https://github.com/WDI-SEA/mongoose-practice')
 
-sei26.assign_homework(assignment1)
+sei30.assign_homework(assignment1)
 
-henry.complete_homework('Bounty Hunters', 98)
+nick.complete_homework('Bounty Hunters', 98)
 sarah.complete_homework('Bounty Hunters', 95)
 
-henry.print_outstanding_homeworks()
+nick.print_outstanding_homeworks()
 sarah.print_outstanding_homeworks()
-mike.print_outstanding_homeworks()
-
+brandi.print_outstanding_homeworks()
 ```
 
 Sample Output
+
 ```
-Henry has no outstanding homeworks!
+Nick has no outstanding homeworks!
 Sarah has no outstanding homeworks!
-Mike still needs to turn in: Bounty Hunters
+Brandi still needs to turn in: Bounty Hunters
 ```
